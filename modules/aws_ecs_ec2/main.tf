@@ -169,6 +169,7 @@ resource "aws_ecs_service" "retool" {
   deployment_maximum_percent         = var.maximum_percent
   deployment_minimum_healthy_percent = var.minimum_healthy_percent
   iam_role                           = aws_iam_role.service_role.arn
+  health_check_grace_period_seconds  = 60
 
   load_balancer {
     target_group_arn = aws_lb_target_group.this.arn
